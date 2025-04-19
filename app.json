@@ -9,13 +9,34 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "config": {
+        "googleMapsApiKey": "AIzaSyAPHv9c94_dp0SWnL9RyS8iw_B5w1EbINQ"
+      },
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location"
+        ],
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need your location even in background",
+        "NSLocationWhenInUseUsageDescription": "We need your location to track your ride"
+      }
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAPHv9c94_dp0SWnL9RyS8iw_B5w1EbINQ"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "package": "com.israelbosun.delivery"
     },
     "web": {
       "bundler": "metro",
@@ -32,10 +53,37 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsVersion": "11.8.0",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiaXNyYWVsYm9zdW4iLCJhIjoiY205YTk5YzgwMDJqajJrczc3Nm00aW41dSJ9.cFRllEcPaitrIkBskoyahw"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "foregroundService": {
+            "notificationTitle": "Tracking Rider",
+            "notificationBody": "We are tracking your location",
+            "notificationColor": "#FF0000"
+          },
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to access your location."
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "googleMapsApiKey" : "AIzaSyAPHv9c94_dp0SWnL9RyS8iw_B5w1EbINQ",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "61f8f455-6728-47ae-8f0f-41bbcbc5e701"
+      }
     }
   }
 }
