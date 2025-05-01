@@ -262,7 +262,7 @@ export default function HomeScreen() {
           const options = {
             accuracy: Location.Accuracy.High,
             timeInterval: 5000,
-            distanceInterval: 5,
+            // distanceInterval: 5,
             showsBackgroundLocationIndicator: true,
             foregroundService: {
               notificationTitle: 'Tracking your location',
